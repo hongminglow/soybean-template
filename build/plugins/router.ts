@@ -31,6 +31,28 @@ export function setupElegantRouter() {
         i18nKey: `route.${key}` as App.I18n.I18nKey
       };
 
+      if (key === 'management') {
+        meta.icon = 'mdi:settings';
+        meta.order = 10;
+        meta.constant = true;
+      }
+
+      if (key === 'management_user') {
+        meta.icon = 'mdi:account-group';
+        meta.order = 1;
+        meta.constant = true;
+      }
+
+      if (key === 'management_user-operate') {
+        meta.hideInMenu = true;
+        meta.constant = true;
+        meta.activeMenu = 'management_user';
+      }
+
+      if (key === 'home') {
+        meta.constant = true;
+      }
+
       if (constantRoutes.includes(key)) {
         meta.constant = true;
       }

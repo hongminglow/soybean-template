@@ -124,31 +124,31 @@ Quick reference for specialized components you might need. Use `Cmd/Ctrl + F` to
 
 | Component | Tags | Usage Note |
 | :--- | :--- | :--- |
-| **`NCarousel`** | #display #interactive #media | Slideshows or content banners. |
-| **`NCollapse`** | #layout #display #accordion | Expandable/collapsible content sections. |
-| **`NWatermark`** | #security #display | Add security or brand overlays to pages. |
-| **`NDynamicTags`** | #form #input #tags | Managing a list of tags (add/remove). |
-| **`NInputOtp`** | #form #auth #security | specialized input for 2FA/Verification codes. |
-| **`NMention`** | #form #input #social | Trigger actions with `@` in text fields. |
-| **`NTimePicker`** | #form #date #time | Picking specific time without date. |
-| **`NTransfer`** | #form #selection #data | Double-list selection (pick from A to B). |
-| **`NUpload`** | #form #file #media | File/Image upload with preview support. |
-| **`NCountdown`** | #display #time #timer | Countdown for events/promotions. |
-| **`NImage`** | #display #media #preview | Image display with built-in preview/zoom. |
-| **`NNumberAnimation`** | #display #animation | Smoothly counting up/down to a value. |
-| **`NQrCode`** | #display #tool #security | Generate QR codes instantly. |
-| **`NTime`** | #display #formatting | Format time (e.g., "3 hours ago"). |
-| **`NInfiniteScroll`** | #display #perf #list | Load more data on scroll (infinite list). |
-| **`NHighlight`** | #display #text #search | Highlight keywords in a block of text. |
-| **`NTree`** | #display #structure | Folder structures or hierarchical data. |
-| **`NBackTop`** | #navigation #tool | Floating button to scroll back to top. |
-| **`NSteps`** | #navigation #process | Visual feedback for multi-step flows. |
-| **`NAlert`** | #feedback #display | Inline status messages (Success/Warning). |
-| **`NMarquee`** | #display #animation #news | Scrolling announcements/bulletins. |
-| **`NMessage`** | #feedback #toast #global | Top-center floating toasts (`window.$message`). |
-| **`NNotification`** | #feedback #alert #global | Corner notifications (`window.$notification`). |
-| **`NSpin`** | #feedback #loading | Loading indicators/Spinners. |
-| **`NVirtualList`** | #display #perf #massive | High-perf rendering for 10,000+ items. |
+| **`NCarousel`** | #carousel #display #interactive #media | Slideshows or content banners. |
+| **`NCollapse`** | #collapse #layout #display #accordion | Expandable/collapsible content sections. |
+| **`NWatermark`** | #watermark #security #display | Add security or brand overlays to pages. |
+| **`NDynamicTags`** | #dynamicTags #form #input #tags | Managing a list of tags (add/remove). |
+| **`NInputOtp`** | #inputOtp #form #auth #security | specialized input for 2FA/Verification codes. |
+| **`NMention`** | #mention #form #input #social | Trigger actions with `@` in text fields. |
+| **`NTimePicker`** | #timePicker #form #date #time | Picking specific time without date. |
+| **`NTransfer`** | #transfer #form #selection #data | Double-list selection (pick from A to B). |
+| **`NUpload`** | #upload #form #file #media | File/Image upload with preview support. |
+| **`NCountdown`** | #countdown #display #time #timer | Countdown for events/promotions. |
+| **`NImage`** | #image #display #media #preview | Image display with built-in preview/zoom. |
+| **`NNumberAnimation`** | #numberAnimation #display #animation | Smoothly counting up/down to a value. |
+| **`NQrCode`** | #qrCode #display #tool #security | Generate QR codes instantly. |
+| **`NTime`** | #time #display #formatting | Format time (e.g., "3 hours ago"). |
+| **`NInfiniteScroll`** | #infiniteScroll #display #perf #list | Load more data on scroll (infinite list). |
+| **`NHighlight`** | #highlight #display #text #search | Highlight keywords in a block of text. |
+| **`NTree`** | #tree #display #structure | Folder structures or hierarchical data. |
+| **`NBackTop`** | #backTop #navigation #tool | Floating button to scroll back to top. |
+| **`NSteps`** | #steps #navigation #process | Visual feedback for multi-step flows. |
+| **`NAlert`** | #alert #feedback #display | Inline status messages (Success/Warning). |
+| **`NMarquee`** | #marquee #display #animation #news | Scrolling announcements/bulletins. |
+| **`NMessage`** | #message #feedback #toast #global | Top-center floating toasts (`window.$message`). |
+| **`NNotification`** | #notification #feedback #alert #global | Corner notifications (`window.$notification`). |
+| **`NSpin`** | #spin #feedback #loading | Loading indicators/Spinners. |
+| **`NVirtualList`** | #virtualList #display #perf #massive | High-perf rendering for 10,000+ items. |
 
 ---
 

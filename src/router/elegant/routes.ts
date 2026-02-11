@@ -47,7 +47,8 @@ export const generatedRoutes: GeneratedRoute[] = [
       title: 'home',
       i18nKey: 'route.home',
       icon: 'mdi:monitor-dashboard',
-      order: 1
+      order: 1,
+      constant: true
     }
   },
   {
@@ -76,12 +77,41 @@ export const generatedRoutes: GeneratedRoute[] = [
     }
   },
   {
-    name: 'test',
-    path: '/test',
-    component: 'layout.base$view.test',
+    name: 'management',
+    path: '/management',
+    component: 'layout.base',
     meta: {
-      title: 'test',
-      i18nKey: 'route.test'
-    }
+      title: 'management',
+      i18nKey: 'route.management',
+      icon: 'mdi:settings',
+      order: 10,
+      constant: true
+    },
+    children: [
+      {
+        name: 'management_user',
+        path: '/management/user',
+        component: 'view.management_user',
+        meta: {
+          title: 'management_user',
+          i18nKey: 'route.management_user',
+          icon: 'mdi:account-group',
+          order: 1,
+          constant: true
+        }
+      },
+      {
+        name: 'management_user-operate',
+        path: '/management/user-operate',
+        component: 'view.management_user-operate',
+        meta: {
+          title: 'management_user-operate',
+          i18nKey: 'route.management_user-operate',
+          hideInMenu: true,
+          constant: true,
+          activeMenu: 'management_user'
+        }
+      }
+    ]
   }
 ];

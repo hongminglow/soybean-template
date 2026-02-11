@@ -226,7 +226,9 @@ const local: App.I18n.Schema = {
     500: '服务器错误',
     'iframe-page': '外链页面',
     home: '首页',
-    test: '测试'
+    management: '系统管理',
+    management_user: '用户管理',
+    'management_user-operate': '用户操作'
   },
   page: {
     login: {
@@ -303,6 +305,23 @@ const local: App.I18n.Schema = {
         desc5: 'Soybean 刚才把工作台页面随便写了一些，凑合能看了！'
       },
       creativity: '创意'
+    },
+    management: {
+      user: {
+        title: '用户管理',
+        userName: '用户名',
+        userGender: '性别',
+        nickName: '昵称',
+        userPhone: '手机号',
+        userEmail: '邮箱',
+        userStatus: '用户状态',
+        addUser: '新增用户',
+        editUser: '编辑用户',
+        gender: {
+          male: '男',
+          female: '女'
+        }
+      }
     }
   },
   form: {

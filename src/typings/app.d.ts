@@ -555,6 +555,23 @@ declare namespace App {
           };
           creativity: string;
         };
+        management: {
+          user: {
+            title: string;
+            userName: string;
+            userGender: string;
+            nickName: string;
+            userPhone: string;
+            userEmail: string;
+            userStatus: string;
+            addUser: string;
+            editUser: string;
+            gender: {
+              male: string;
+              female: string;
+            };
+          };
+        };
       };
       form: {
         required: string;

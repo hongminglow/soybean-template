@@ -54,6 +54,7 @@
     "@sa/hooks": "workspace:*",
     "@sa/materials": "workspace:*",
     "@sa/utils": "workspace:*",
+    "@tanstack/vue-query": "^5.92.9",
     "@vueuse/core": "14.1.0",
     "clipboard": "2.0.11",
     "dayjs": "1.11.19",
@@ -67,7 +68,8 @@
     "vue": "3.5.27",
     "vue-draggable-plus": "0.6.1",
     "vue-i18n": "11.2.8",
-    "vue-router": "4.6.4"
+    "vue-router": "4.6.4",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@elegant-router/vue": "0.3.8",

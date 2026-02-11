@@ -127,11 +127,20 @@ export const useThemeStore = defineStore(SetupStoreId.Theme, () => {
 
     const index = themeSchemes.findIndex(item => item === settings.value.themeScheme);
 
-    const nextIndex = index === themeSchemes.length - 1 ? 0 : index + 1;
+    let nextIndex = index === themeSchemes.length - 1 ? 0 : index + 1;
 
     const nextThemeScheme = themeSchemes[nextIndex];
 
-    setThemeScheme(nextThemeScheme);
+    if (nextThemeScheme === 'auto') {
+      const isAutoDark = osTheme.value === 'dark';
+      const isCurrentDark = darkMode.value;
+
+      if (isAutoDark === isCurrentDark) {
+        nextIndex = nextIndex === themeSchemes.length - 1 ? 0 : nextIndex + 1;
+      }
+    }
+
+    setThemeScheme(themeSchemes[nextIndex]);
   }
 
   /**
