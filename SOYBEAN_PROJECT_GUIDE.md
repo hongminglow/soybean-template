@@ -1,116 +1,101 @@
-# SoybeanAdmin Project Guide
+# Soybean Admin Development Guide
 
-Welcome to the **SoybeanAdmin**! This guide will provide you with the exact steps to start the project, understand its architecture, and add new features like routes.
+This guide outlines the best practices and patterns to follow when developing in this project. It covers Soybean Admin architecture, UnoCSS for styling, and Naive UI for components.
 
----
+## 🚀 General Development Practices
 
-## 🚀 1. Quick Start
+### 1. Component Options (`defineOptions`)
+Every page component in `src/views` should use the `defineOptions` macro to set a component name.
 
-### Prerequisites
-Before you begin, ensure your environment meets the following requirements:
-- **Node.js**: `>= 20.19.0` (Recommended: latest LTS)
-- **pnpm**: `>= 10.5.0`
+```typescript
+defineOptions({
+  name: 'YourComponentName'
+});
+```
+> **Note:** The `name` must match the **Route Name** exactly for the **Keep-alive (tab caching)** functionality to work correctly. It also helps with identification in Vue DevTools.
 
-### Installation & Run
-1. **Install dependencies**:
-   ```bash
-   pnpm i
-   ```
-   *Note: Always use `pnpm` as this is a monorepo project. Do not use npm or yarn.*
+### 2. Route Configuration
+- **Static Routes:** Configure custom meta (icons, order, constant status) in `build/plugins/router.ts` within the `onRouteMetaGen` hook.
+- **Auto Generation:** The project uses `elegant-router`. New files in `src/views` will automatically generate routes in `src/router/elegant/routes.ts`.
 
-2. **Start development server**:
-   ```bash
-   pnpm dev
-   ```
-   The project will be available at `http://localhost:9527` by default.
-
-3. **Build for production**:
-   ```bash
-   pnpm build
-   ```
+### 3. Usage of Constants
+Avoid hardcoding strings for business logic (like status codes or dropdown options).
+- Use `src/constants/business.ts` for domain-specific constants.
+- Use the `CommonType.Option` interface for dropdown/select data structures to maintain type safety.
 
 ---
 
-## 🏗️ 2. Project Architecture & Folder Breakdown
+## 🛣️ Adding a New Route (Step-by-Step)
 
-SoybeanAdmin uses a **pnpm monorepo** architecture. This means the project is divided into multiple packages for better organization and reusability.
+Follow these steps to add a new page and ensure it integrates correctly with the sidebar and permissions system.
 
-### Root Folder Structure
-- **`packages/`**: Shared workspace packages.
-    - `alova` / `axios`: Network request configurations and interceptors.
-    - `color`: Core engine for the theme system, managing color palettes.
-    - `hooks`: Reusable Vue composition API hooks.
-    - `materials`: Handcrafted UI components and shared materials.
-    - `scripts`: CLI tools (aliased as `sa`) for project management and automation.
-    - `utils`: Common utility functions used across the workspace.
-    - `uno-preset`: Custom presets for UnoCSS.
-- **`src/`**: The main application source code.
-- **`build/`**: Build-time configuration and automation.
-    - `config/`: Vite configurations, proxy settings, and environment injections.
-    - `plugins/`: Custom Vite plugins (e.g., router generator, UnoCSS optimizer).
-- **`public/`**: Static assets that are served directly at the root path (icons, favicon, etc.).
+### Step 1: Create the View File
+Create a new folder and an `index.vue` file inside `src/views`.
+- **Example:** `src/views/log-management/system-log/index.vue`
+- The folder structure determines the route path (e.g., `/log-management/system-log`).
 
-### Source Code (`src/`) Details
-- **`views/`**: Page components. Each folder here corresponds to a route.
-- **`router/`**: Routing logic.
-    - `elegant/`: **Automatically generated** routes. **Do not edit manually.**
-    - `routes/`: Custom and builtin route configurations (like 404, login).
-- **`store/`**: Global state management using **Pinia**.
-- **`layouts/`**: Page layout patterns (BaseLayout for sidebars, BlankLayout for login).
-- **`plugins/`**: External library registrations (i18n, icons, loading effects).
-- **`service/`**: API definitions, request services, and business logic.
-- **`locales/`**: Internationalization (i18n) translation files.
-- **`theme/`**: Theme system configuration and appearance settings.
+### Step 2: Set Component Name
+Inside your new `index.vue`, use `defineOptions` to set the name.
+```vue
+<script setup lang="ts">
+defineOptions({
+  name: 'LogManagement_SystemLog' // Note: underscore represents folder level
+});
+</script>
+```
+> **Note:** The name should follow the route key pattern (folders joined by underscores).
 
----
+### Step 3: Wait for Auto-Generation
+The `elegant-router` plugin will detect your new file and automatically update:
+- `src/router/elegant/routes.ts`
+- `src/typings/elegant-router.d.ts` (for type safety)
 
-## 🗺️ 3. How to Add a New Route (Page)
+### Step 4: Configure Metadata
+If you want to set a specific **icon**, **order**, or **active menu** for the route, open `build/plugins/router.ts` and add logic to `onRouteMetaGen`:
 
-SoybeanAdmin uses an automated file-based routing system called **Elegant Router**.
-
-### Step 1: Create the View
-Create a new directory and an `index.vue` file in `src/views`.
-Example: To add an "Analysis" page:
-- Create folder: `src/views/analysis`
-- Create file: `src/views/analysis/index.vue`
-
-### Step 2: Automatic Route Generation
-The router plugin will automatically detect the new file and update `src/router/elegant/routes.ts`. 
-To force an update, run:
-```bash
-pnpm gen-route
+```typescript
+if (key === 'log-management_system-log') {
+  meta.icon = 'mdi:text-box-list-outline';
+  meta.order = 5;
+}
 ```
 
-### Step 3: Configure Sidebar Menu (i18n)
-The menu title is pulled from the i18n files. 
-1. Open `src/locales/langs/zh-cn.ts` (and `en-us.ts`).
-2. Add your route name under the `route` object:
-   ```typescript
-   route: {
-     // ... other routes
-     analysis: '分析页' // English: 'Analysis'
-   }
-   ```
-
-### Step 4: Multi-level Menus
-For nested menus, just create sub-folders:
-`src/views/component/button/index.vue` -> Creates a route at `/component/button`.
+### Step 5: Add Internationalization (i18n)
+Add the translation for the menu title in `src/locales/langs/en-us.ts` (and other languages):
+```typescript
+const local: App.I18n.Schema = {
+  route: {
+    'log-management_system-log': 'System Log'
+  }
+};
+```
 
 ---
 
-## 🛠️ 4. Useful CLI Commands
+## 🎨 UnoCSS Styling Rules
 
-SoybeanAdmin comes with a built-in CLI tool `sa` (located in `packages/scripts`):
+UnoCSS is used for atomic styling. It is configured to be compatible with Tailwind CSS utility classes.
 
-- **`pnpm dev`**: Start the dev server in test mode.
-- **`pnpm gen-route`**: Manually trigger route generation.
-- **`pnpm cleanup`**: Clean `node_modules` and build artifacts.
-- **`pnpm commit`**: Interactive git commit matching project standards.
-- **`pnpm update-pkg`**: Interactive tool to update dependencies safely.
+- **Prefer Atomic Classes:** Use utility classes (e.g., `flex-center`, `gap-16px`, `p-24px`) directly in templates rather than writing custom `<style>` blocks.
+- **Shortcuts:** Look into `uno.config.ts` for project-specific shortcuts like `flex-center` or `wh-full`.
+- **Spacing:** Use standard pixel values (e.g., `m-12px`) or the spacing scale for consistency.
 
 ---
 
-## 🎨 5. Styling & Theme
-The project uses **UnoCSS** for atomic styling. You can use classes like `flex-center`, `text-primary`, and `bg-container` directly in your templates. The theme is highly customizable via the UI settings drawer in the development app, and persistent settings can be changed in `src/theme/settings.ts`.
+## � Naive UI Usage
 
-For more details, please refer to the [Official Documentation](https://docs.soybeanjs.cn).
+- **Global Instances:** Use the global `window.$message`, `window.$dialog`, and `window.$notification` for feedback logic outside of component templates (e.g., in API interceptors).
+- **Type Safety:** Always import and use types from `naive-ui` when defining props or refs that interact with component instances (e.g., `DataTableInst`, `FormInst`).
+- **Theming:** Use the `useThemeVars` hook from Naive UI if you need to access theme colors (primary, success, etc.) inside your Javascript logic.
+
+---
+
+## 🌐 Internationalization (i18n)
+
+- All UI text should be defined in `src/locales/langs/`.
+- Access translations using the `$t('key')` function in templates or `i18n.t('key')` in scripts.
+- Route titles are automatically mapped to `route.{key}` in the locale files.
+
+---
+
+*This guide is a living document. Please add new patterns and "gotchas" as you discover them during development.*
