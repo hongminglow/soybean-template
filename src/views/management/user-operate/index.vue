@@ -81,7 +81,7 @@ onMounted(() => {
     <NCard :title="title" :bordered="false" class="h-full rd-12px shadow-sm">
       <!-- Removed max-w-1200px to allow the form to fill the entire page width -->
       <NForm ref="formRef" :model="model" :rules="rules" label-placement="top" class="w-full">
-        <NGrid :x-gap="24" :y-gap="2" :cols="24" responsive="screen">
+        <NGrid :x-gap="16" :y-gap="0" :cols="24" responsive="screen">
           <NGi span="24 m:12 l:8">
             <NFormItem :label="$t('page.management.user.userName')" path="userName">
               <NInput v-model:value="model.userName" :placeholder="$t('page.management.user.userName')" />
@@ -135,7 +135,7 @@ onMounted(() => {
             </NFormItem>
           </NGi>
         </NGrid>
-        <NSpace class="mt-24px pt-12px">
+        <NSpace class="mt-12px pt-8px">
           <NButton type="primary" class="w-120px" @click="handleSubmit">{{ $t('common.confirm') }}</NButton>
           <NButton secondary @click="goBack">{{ $t('common.cancel') }}</NButton>
         </NSpace>
@@ -146,6 +146,6 @@ onMounted(() => {
 
 <style scoped>
 :deep(.n-form-item) {
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 </style>
