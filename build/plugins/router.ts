@@ -49,6 +49,16 @@ export function setupElegantRouter() {
         meta.activeMenu = 'management_user';
       }
 
+      if (key === 'sms') {
+        meta.icon = 'material-symbols:sms-outline';
+        meta.order = 9;
+      }
+
+      if (key === 'sms_config') {
+        meta.icon = 'material-symbols:settings-outline';
+        meta.order = 1;
+      }
+
       if (key === 'home') {
         meta.constant = true;
       }

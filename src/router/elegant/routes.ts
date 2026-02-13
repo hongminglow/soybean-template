@@ -113,5 +113,29 @@ export const generatedRoutes: GeneratedRoute[] = [
         }
       }
     ]
+  },
+  {
+    name: 'sms',
+    path: '/sms',
+    component: 'layout.base',
+    meta: {
+      title: 'sms',
+      i18nKey: 'route.sms',
+      icon: 'material-symbols:sms-outline',
+      order: 9
+    },
+    children: [
+      {
+        name: 'sms_config',
+        path: '/sms/config',
+        component: 'view.sms_config',
+        meta: {
+          title: 'sms_config',
+          i18nKey: 'route.sms_config',
+          icon: 'material-symbols:settings-outline',
+          order: 1
+        }
+      }
+    ]
   }
 ];

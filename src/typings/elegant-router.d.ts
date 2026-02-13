@@ -26,6 +26,8 @@ declare module "@elegant-router/types" {
     "management": "/management";
     "management_user": "/management/user";
     "management_user-operate": "/management/user-operate";
+    "sms": "/sms";
+    "sms_config": "/sms/config";
   };
 
   /**
@@ -64,6 +66,7 @@ declare module "@elegant-router/types" {
     | "iframe-page"
     | "login"
     | "management"
+    | "sms"
   >;
 
   /**
@@ -88,6 +91,7 @@ declare module "@elegant-router/types" {
     | "home"
     | "management_user-operate"
     | "management_user"
+    | "sms_config"
   >;
 
   /**

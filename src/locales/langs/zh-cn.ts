@@ -228,7 +228,9 @@ const local: App.I18n.Schema = {
     home: '首页',
     management: '系统管理',
     management_user: '用户管理',
-    'management_user-operate': '用户操作'
+    'management_user-operate': '用户操作',
+    sms: '短信模块',
+    sms_config: '短信内容配置'
   },
   page: {
     login: {
@@ -320,6 +322,33 @@ const local: App.I18n.Schema = {
         gender: {
           male: '男',
           female: '女'
+        }
+      }
+    },
+    sms: {
+      config: {
+        title: '短信内容配置',
+        tip: '标准短信 (GSM) 仅支持纯文本。移动运营商不支持加粗或斜体等格式。',
+        senderId: '发送者 ID (Alpha Tag)',
+        senderIdPlaceholder: '请输入发送者名称 (例如：BRANDNAME)',
+        template: '消息模板',
+        templatePlaceholder: '在此输入您的消息模板...',
+        charCount: '{count} 个字符 ({segments} 条短信分段)',
+        charCountSingle: '{count} 个字符 ({segments} 条短信分段)',
+        quickInsert: '快速插入变量',
+        saveConfig: '保存配置',
+        phonePreview: '手机预览',
+        saveSuccess: '短信配置保存成功！',
+        variables: {
+          otp: '验证码',
+          expiry: '有效时间',
+          brand: '品牌名称'
+        },
+        mock: {
+          sender: '发送者',
+          placeholder: '输入内容查看预览...',
+          time: '今天 9:41 AM',
+          input: '短信'
         }
       }
     }

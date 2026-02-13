@@ -171,7 +171,9 @@ const routeMap: RouteMap = {
   "login": "/login/:module(pwd-login|code-login|register|reset-pwd|bind-wechat)?",
   "management": "/management",
   "management_user": "/management/user",
-  "management_user-operate": "/management/user-operate"
+  "management_user-operate": "/management/user-operate",
+  "sms": "/sms",
+  "sms_config": "/sms/config"
 };
 
 /**
