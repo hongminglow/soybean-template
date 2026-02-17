@@ -97,7 +97,8 @@ export const generatedRoutes: GeneratedRoute[] = [
           i18nKey: 'route.management_user',
           icon: 'mdi:account-group',
           order: 1,
-          constant: true
+          constant: true,
+          keepAlive: true
         }
       },
       {
@@ -133,7 +134,8 @@ export const generatedRoutes: GeneratedRoute[] = [
           title: 'sms_config',
           i18nKey: 'route.sms_config',
           icon: 'material-symbols:settings-outline',
-          order: 1
+          order: 1,
+          keepAlive: true
         }
       }
     ]

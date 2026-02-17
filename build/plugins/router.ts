@@ -41,6 +41,7 @@ export function setupElegantRouter() {
         meta.icon = 'mdi:account-group';
         meta.order = 1;
         meta.constant = true;
+        meta.keepAlive = true;
       }
 
       if (key === 'management_user-operate') {
@@ -57,6 +58,7 @@ export function setupElegantRouter() {
       if (key === 'sms_config') {
         meta.icon = 'material-symbols:settings-outline';
         meta.order = 1;
+        meta.keepAlive = true;
       }
 
       if (key === 'home') {

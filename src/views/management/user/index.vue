@@ -12,7 +12,7 @@ import UserSearch from './modules/user-search.vue';
  * User Management List Page
  */
 defineOptions({
-  name: 'UserManagement'
+  name: 'management_user'
 });
 
 const router = useRouter();
@@ -239,9 +239,3 @@ function handleReset() {
     </NCard>
   </div>
 </template>
-
-<style scoped>
-.card-wrapper {
-  background-color: var(--n-color);
-}
-</style>

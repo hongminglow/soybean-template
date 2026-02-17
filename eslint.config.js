@@ -18,7 +18,8 @@ export default defineConfig(
           ignores: ['/^icon-/']
         }
       ],
-      'unocss/order-attributify': 'off'
+      'unocss/order-attributify': 'off',
+      'vue/component-definition-name-casing': 'off'
     }
   }
 );

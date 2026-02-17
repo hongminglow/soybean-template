@@ -3,7 +3,7 @@ import { computed, ref } from 'vue';
 import { $t } from '@/locales';
 
 defineOptions({
-  name: 'SmsConfig'
+  name: 'sms_config'
 });
 
 const senderId = ref('SOYBEAN');

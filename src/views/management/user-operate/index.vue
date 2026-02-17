@@ -7,7 +7,7 @@ import { useFormRules, useNaiveForm } from '@/hooks/common/form';
 import { $t } from '@/locales';
 
 defineOptions({
-  name: 'UserOperatePage'
+  name: 'management_user-operate'
 });
 
 const route = useRoute();
