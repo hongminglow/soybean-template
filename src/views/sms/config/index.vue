@@ -119,11 +119,11 @@ async function handleSave() {
             class="relative h-560px w-280px overflow-hidden border-8 border-gray-800 rd-36px bg-black p-12px shadow-2xl"
           >
             <!-- Screen -->
-            <div class="h-full w-full flex flex-col overflow-hidden rd-24px bg-white">
+            <div class="h-full w-full flex flex-col overflow-hidden rd-24px bg-white dark:bg-[#121212]">
               <!-- Status Bar -->
-              <div class="h-24px flex items-center justify-between bg-gray-100 px-16px text-10px">
-                <span>9:41</span>
-                <div class="flex gap-4px">
+              <div class="h-24px flex items-center justify-between bg-gray-100 px-16px text-10px dark:bg-[#1e1e1e]">
+                <span class="dark:text-white/80">9:41</span>
+                <div class="flex gap-4px dark:text-white/80">
                   <icon-material-symbols-signal-cellular-4-bar />
                   <icon-material-symbols-wifi />
                   <icon-material-symbols-battery-full />
@@ -131,27 +131,31 @@ async function handleSave() {
               </div>
 
               <!-- Message Header -->
-              <div class="flex flex-col items-center border-b border-gray-200 p-12px">
-                <div class="mb-4px h-40px w-40px flex items-center justify-center rd-full bg-gray-200">
-                  <icon-material-symbols-person class="text-24px text-gray-500" />
+              <div class="flex flex-col items-center border-b border-gray-200 p-12px dark:border-white/10">
+                <div class="mb-4px h-40px w-40px flex items-center justify-center rd-full bg-gray-200 dark:bg-gray-700">
+                  <icon-material-symbols-person class="text-24px text-gray-500 dark:text-gray-400" />
                 </div>
-                <span class="text-14px font-bold">{{ senderId || $t('page.sms.config.mock.sender') }}</span>
+                <span class="text-14px font-bold dark:text-white/90">
+                  {{ senderId || $t('page.sms.config.mock.sender') }}
+                </span>
               </div>
 
               <!-- Chat Area -->
-              <div class="flex-1 overflow-y-auto bg-gray-50 p-12px">
-                <div class="mb-8px max-w-85% rd-16px bg-gray-200 p-12px text-13px leading-tight">
+              <div class="flex-1 overflow-y-auto bg-gray-50 p-12px dark:bg-black">
+                <div
+                  class="mb-8px max-w-85% rd-16px bg-gray-200 p-12px text-13px leading-tight dark:bg-[#262626] dark:text-white/80"
+                >
                   {{ previewMessage || $t('page.sms.config.mock.placeholder') }}
                 </div>
                 <div class="text-center">
-                  <span class="text-10px text-gray-400">{{ $t('page.sms.config.mock.time') }}</span>
+                  <span class="text-10px text-gray-400 dark:text-gray-500">{{ $t('page.sms.config.mock.time') }}</span>
                 </div>
               </div>
 
               <!-- Input Bar Mockup -->
-              <div class="flex items-center gap-8px border-t border-gray-200 p-8px">
-                <div class="h-32px flex flex-1 items-center rd-16px bg-gray-100 px-12px">
-                  <span class="text-12px text-gray-400">{{ $t('page.sms.config.mock.input') }}</span>
+              <div class="flex items-center gap-8px border-t border-gray-200 p-8px dark:border-white/10">
+                <div class="h-32px flex flex-1 items-center rd-16px bg-gray-100 px-12px dark:bg-[#1a1a1a]">
+                  <span class="text-12px text-gray-400 dark:text-gray-500">{{ $t('page.sms.config.mock.input') }}</span>
                 </div>
                 <div class="h-32px w-32px flex items-center justify-center rd-full bg-blue-500">
                   <icon-material-symbols-arrow-upward class="text-16px text-white" />
@@ -160,7 +164,9 @@ async function handleSave() {
             </div>
 
             <!-- Home Bar -->
-            <div class="absolute bottom-16px left-1/2 h-4px w-80px rd-full bg-gray-100/50 -translate-x-1/2"></div>
+            <div
+              class="absolute bottom-16px left-1/2 h-4px w-80px rd-full bg-gray-100/50 -translate-x-1/2 dark:bg-white/20"
+            ></div>
           </div>
         </NCard>
       </NGi>
