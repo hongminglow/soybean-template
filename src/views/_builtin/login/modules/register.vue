@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue';
-import { useRouterPush } from '@/hooks/common/router';
-import { useFormRules, useNaiveForm } from '@/hooks/common/form';
-import { useCaptcha } from '@/hooks/business/captcha';
+import { useRouterPush } from '@/composables/common/use-router';
+import { useFormRules, useNaiveForm } from '@/composables/common/use-form';
+import { useCaptcha } from '@/composables/business/use-captcha';
 import { $t } from '@/locales';
 
 defineOptions({

@@ -1,9 +1,9 @@
 import { computed, reactive, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { defineStore } from 'pinia';
-import { useLoading } from '@sa/hooks';
+import { useLoading } from '@sa/composables';
 import { fetchGetUserInfo, fetchLogin } from '@/service/api';
-import { useRouterPush } from '@/hooks/common/router';
+import { useRouterPush } from '@/composables/common/use-router';
 import { localStg } from '@/utils/storage';
 import { SetupStoreId } from '@/enum';
 import { $t } from '@/locales';

@@ -6,8 +6,8 @@ declare namespace NaiveUI {
   type DataTableExpandColumn<T> = import('naive-ui').DataTableExpandColumn<T>;
   type DataTableSelectionColumn<T> = import('naive-ui').DataTableSelectionColumn<T>;
   type TableColumnGroup<T> = import('naive-ui/es/data-table/src/interface').TableColumnGroup<T>;
-  type TableColumnCheck = import('@sa/hooks').TableColumnCheck;
-  type TableColumnFixed = import('@sa/hooks').TableColumnCheck['fixed'];
+  type TableColumnCheck = import('@sa/composables').TableColumnCheck;
+  type TableColumnFixed = import('@sa/composables').TableColumnCheck['fixed'];
 
   type SetTableColumnKey<C, T> = Omit<C, 'key'> & { key: keyof T | (string & {}) };
 

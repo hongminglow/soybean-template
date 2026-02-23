@@ -1,8 +1,8 @@
 import { computed, effectScope, onScopeDispose, reactive, shallowRef, watch } from 'vue';
 import type { Ref } from 'vue';
 import type { PaginationProps } from 'naive-ui';
-import { useBoolean, useTable } from '@sa/hooks';
-import type { PaginationData, TableColumnCheck, UseTableOptions } from '@sa/hooks';
+import { useBoolean, useTable } from '@sa/composables';
+import type { PaginationData, TableColumnCheck, UseTableOptions } from '@sa/composables';
 import type { FlatResponseData } from '@sa/axios';
 import { jsonClone } from '@sa/utils';
 import { useAppStore } from '@/store/modules/app';

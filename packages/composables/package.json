@@ -1,5 +1,5 @@
 {
-  "name": "@sa/hooks",
+  "name": "@sa/composables",
   "version": "2.0.2",
   "exports": {
     ".": "./src/index.ts"

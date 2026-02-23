@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { userGenderOptions } from '@/constants/business';
-import { useNaiveForm } from '@/hooks/common/form';
+import { useNaiveForm } from '@/composables/common/use-form';
 import { $t } from '@/locales';
 
 defineOptions({

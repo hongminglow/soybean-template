@@ -23,6 +23,46 @@ Avoid hardcoding strings for business logic (like status codes or dropdown optio
 - Use `src/constants/business.ts` for domain-specific constants.
 - Use the `CommonType.Option` interface for dropdown/select data structures to maintain type safety.
 
+### 4. Custom Typing SOP (`.d.ts` vs `types.ts`)
+We follow a strict Soybean-style typing strategy.
+
+#### 4.1 Decision Rule (Must Follow)
+- Put types in `src/typings/**/*.d.ts` when the type is **cross-module/global contract** (API namespace, global augmentation, router/storage/app-level shared typing).
+- Put types in local `types.ts` (near feature/page/component) when the type is **feature-local UI typing** (table row shape used only in one page, local form state, component-only props helpers).
+
+#### 4.2 When You MUST Add/Update `src/typings`
+1. **New Backend API contract**
+  - Add/update files under `src/typings/api/`.
+  - Keep request/response contracts centralized by domain.
+2. **Global augmentation**
+  - Update `src/typings/global.d.ts` for `Window`, global constants, or project-level globals.
+3. **Framework-level shared contracts**
+  - Update related global declaration files (for router meta, storage keys, app namespaces, etc.) when many modules consume the same type.
+
+#### 4.3 When to Use Local `types.ts` (React-style)
+- Use local `types.ts` if the type is only meaningful inside one feature folder.
+- Example (recommended):
+  - `src/views/home/index.vue`
+  - `src/views/home/types.ts`
+- This is equivalent to typical React colocated typing and is fully allowed in this project.
+
+#### 4.4 Why This Project Uses `.d.ts`
+- `.d.ts` declarations are discovered globally by TypeScript, reducing repetitive imports for project-wide contracts.
+- Namespaced declarations (for example `Api.*`) keep large API contracts organized and consistent across service/store/view layers.
+
+#### 4.5 Naming and Structure Convention
+- API domain typings: `src/typings/api/<domain>.d.ts` (example: `user-management.d.ts`).
+- Local feature typings: `types.ts` inside the same feature folder.
+- Avoid creating global declarations for one-off local UI data.
+
+### 5. React Developer Notes (Important)
+These conventions are valid Vue patterns, but can be confusing if you come from React. Use the following mapping as the project SOP.
+
+#### 5.1 `views/**/modules` vs `src/components/**`
+- `views/<feature>/modules/*` = route-local components (used by one page/feature).
+- `src/components/*` = shared reusable components (used by multiple features/layouts).
+- In this project, prefer `modules` for page-local pieces to stay consistent with existing Soybean structure.
+
 ---
 
 ## 🛣️ Adding a New Route (Step-by-Step)

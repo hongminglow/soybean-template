@@ -51,7 +51,7 @@
     "@iconify/vue": "5.0.0",
     "@sa/axios": "workspace:*",
     "@sa/color": "workspace:*",
-    "@sa/hooks": "workspace:*",
+    "@sa/composables": "workspace:*",
     "@sa/materials": "workspace:*",
     "@sa/utils": "workspace:*",
     "@tanstack/vue-query": "^5.92.9",

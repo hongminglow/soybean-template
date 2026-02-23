@@ -3,7 +3,7 @@ import { computed, onMounted, reactive } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { enableStatusOptions, userGenderOptions } from '@/constants/business';
 import { addUser, fetchUserDetails, updateUser } from '@/service/api/user-management';
-import { useFormRules, useNaiveForm } from '@/hooks/common/form';
+import { useFormRules, useNaiveForm } from '@/composables/common/use-form';
 import { $t } from '@/locales';
 
 defineOptions({

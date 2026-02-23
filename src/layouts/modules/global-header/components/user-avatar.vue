@@ -2,8 +2,8 @@
 import { computed } from 'vue';
 import type { VNode } from 'vue';
 import { useAuthStore } from '@/store/modules/auth';
-import { useRouterPush } from '@/hooks/common/router';
-import { useSvgIcon } from '@/hooks/common/icon';
+import { useRouterPush } from '@/composables/common/use-router';
+import { useSvgIcon } from '@/composables/common/use-icon';
 import { $t } from '@/locales';
 
 defineOptions({

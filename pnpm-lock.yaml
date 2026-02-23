@@ -20,9 +20,9 @@ importers:
       '@sa/color':
         specifier: workspace:*
         version: link:packages/color
-      '@sa/hooks':
+      '@sa/composables':
         specifier: workspace:*
-        version: link:packages/hooks
+        version: link:packages/composables
       '@sa/materials':
         specifier: workspace:*
         version: link:packages/materials
@@ -215,7 +215,7 @@ importers:
         specifier: 2.9.3
         version: 2.9.3
 
-  packages/hooks:
+  packages/composables:
     dependencies:
       '@sa/axios':
         specifier: workspace:*

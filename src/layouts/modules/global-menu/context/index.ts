@@ -1,10 +1,10 @@
 import { computed, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import { useContext } from '@sa/hooks';
+import { useContext } from '@sa/composables';
 import type { RouteKey } from '@elegant-router/types';
 import { useRouteStore } from '@/store/modules/route';
 import { useThemeStore } from '@/store/modules/theme';
-import { useRouterPush } from '@/hooks/common/router';
+import { useRouterPush } from '@/composables/common/use-router';
 
 export const [provideMixMenuContext, useMixMenuContext] = useContext('MixMenu', useMixMenu);
 
